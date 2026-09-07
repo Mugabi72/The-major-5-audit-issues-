@@ -18,17 +18,28 @@ Practical Improvement
 Use strong contrast between text and the background, such as dark text on a light background.
 
 3.Accessibility Issue
-
+Website cannot be fully used with a keyboard
 Who May Be Affected
+People with motor disabilities and people who cannot use a mouse
 Explanation of the Barrier
+Users may be unable to access buttons, links, menus, or forms if they require a mouse.
 Practical Improvement
+Make sure all interactive elements can be reached and operated using the Tab, Enter, and arrow keys.
 
 4.Accessibility Issue
+Videos do not have captions
 Who May Be Affected
+People who are deaf or hard of hearing
 Explanation of the Barrier
+Users may not understand spoken information in a video.
 Practical Improvement
+Add accurate captions/subtitles to all videos
 
 5.Accessibility Issue
+Text is too small
 Who May Be Affected
+People with low vision and older users
 Explanation of the Barrier
+Small text can be difficult to read, especially on phones and smaller screens.
 Practical Improvement
+Use an accessible font size and allow users to zoom the page without the content becoming unusable.

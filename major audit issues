@@ -1,1 +1,34 @@
+1.Accessibility Issue
+Images do not have alternative text 
+Who May Be Affected 
+People who are blind or have low vision
+Explanation of the Barrier
+Screen readers cannot properly describe images when alt text is missing.
+Practical Improvement
+Add clear and meaningful alt text to every important image.
 
+
+2.Accessibility Issue
+Poor colour contrast between text and background
+Who May Be Affected
+People with low vision or colour-vision difficulties
+Explanation of the Barrier
+Text that has a similar colour to the background can be difficult to read.
+Practical Improvement
+Use strong contrast between text and the background, such as dark text on a light background.
+
+3.Accessibility Issue
+
+Who May Be Affected
+Explanation of the Barrier
+Practical Improvement
+
+4.Accessibility Issue
+Who May Be Affected
+Explanation of the Barrier
+Practical Improvement
+
+5.Accessibility Issue
+Who May Be Affected
+Explanation of the Barrier
+Practical Improvement

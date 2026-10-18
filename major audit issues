@@ -43,3 +43,56 @@ Explanation of the Barrier
 Small text can be difficult to read, especially on phones and smaller screens.
 Practical Improvement
 Use an accessible font size and allow users to zoom the page without the content becoming unusable.
+
+6 Accessibility Issue: Links with unclear text (e.g., "Click here")
+- Who May Be Affected: Screen reader users and people with cognitive disabilities
+- Explanation of the Barrier: Screen readers often list links out of context, so "click here" or "read more" gives no clue where the link goes.
+- Practical Improvement: Use descriptive link text such as "Download the 2026 admission form".
+
+7. Accessibility Issue: Missing or poorly structured headings
+- Who May Be Affected: Screen reader users and people with cognitive or learning disabilities
+- Explanation of the Barrier: Without proper headings, users cannot skim or jump between sections, so the page is confusing to navigate.
+- Practical Improvement: Use a clear heading hierarchy (H1, H2, H3) to organise content logically.
+
+8. Accessibility Issue: Forms without labels or clear error messages
+- Who May Be Affected: Screen reader users, people with cognitive disabilities and people with low vision
+- Explanation of the Barrier: Users may not know what to type in a field or what went wrong when a form fails to submit.
+- Practical Improvement: Attach a visible label to every field and give clear, specific error messages (e.g., "Enter a valid email address").
+
+9. Accessibility Issue: Information conveyed by colour alone
+- Who May Be Affected: People with colour blindness or low vision
+- Explanation of the Barrier: If errors are shown only in red or required fields only in green, some users cannot tell the difference.
+- Practical Improvement: Add text, icons or patterns alongside colour (e.g., an "Error:" label with a warning icon).
+
+10. Accessibility Issue: Flashing or auto-playing content
+- Who May Be Affected: People with epilepsy, attention difficulties or cognitive disabilities
+- Explanation of the Barrier: Flashing animations can trigger seizures, and auto-playing audio or video can distract users or interfere with screen readers.
+- Practical Improvement: Avoid flashing content, and let users pause, stop or mute any moving or auto-playing media.
+
+11. Accessibility Issue: Audio content without a transcript
+- Who May Be Affected: People who are deaf or hard of hearing
+- Explanation of the Barrier: Podcasts and audio recordings cannot be understood without hearing them.
+- Practical Improvement:Provide a full text transcript for all audio content.
+
+12. Accessibility Issue: Time limits on tasks or sessions
+- Who May Be Affected: People with motor, cognitive or visual disabilities who need more time
+- Explanation of the Barrier: Sessions that expire quickly (e.g., online payments or exams) can lock out users who work more slowly.
+- Practical Improvement: Allow users to extend, adjust or turn off time limits, with a warning before time runs out.
+
+13. Accessibility Issue: Complex or confusing language
+- Who May Be Affected: People with dyslexia, cognitive disabilities, low literacy and non-native speakers
+- Explanation of the Barrier: Long sentences, jargon and dense text make information hard to understand.
+- Practical Improvement: Use plain language, short sentences and short paragraphs, and explain technical terms.
+
+14. Accessibility Issue: No visible focus indicator
+- Who May Be Affected: Keyboard users and people with low vision
+- Explanation of the Barrier: If users cannot see which button or link is currently selected, they lose track of where they are on the page.
+- Practical Improvement: Show a clear outline or highlight on whichever element has keyboard focus.
+
+15. Accessibility Issue: Layout that does not adapt to different screens
+- Who May Be Affected:  Mobile users, people with low vision who zoom in, and people with motor disabilities
+- Explanation of the Barrier: Content that is cut off or requires horizontal scrolling is hard to read and use on small screens or when zoomed.
+- Practical Improvement: Use responsive design so content reflows to fit any screen size or zoom level.
+
+
+

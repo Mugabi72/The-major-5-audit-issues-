@@ -235,14 +235,174 @@ Suggested order of fixing: keyboard and forms first, then alt text, captions and
 8. **What is responsive design?** A layout that adapts to any screen size or zoom level.
 
  25. Key terms
-- **WCAG:** Web Content Accessibility Guidelines, the international standard.
-- **Alt text:** a text alternative describing an image.
-- **Screen reader:** software that reads screen content aloud (NVDA, VoiceOver, TalkBack).
-- **Captions:** synced text for the audio in a video.
-- **Transcript:** a full text version of audio content.
-- **Focus indicator:** the visible outline on the active element.
+- WCAG: Web Content Accessibility Guidelines, the international standard.
+- Alt text: a text alternative describing an image.
+- Screen reader: software that reads screen content aloud (NVDA, VoiceOver, TalkBack).
+- Captions: synced text for the audio in a video.
+- Transcript: a full text version of audio content.
+- Focus indicator: the visible outline on the active element.
 - **Reflow:** content adjusting to the screen without horizontal scrolling.
 - **Plain language:** clear, simple wording that most people can understand.
 
 Want all of this combined with your fifteen issues into one Word document or a finished README?
 
+Here is more material, continuing from section 25.
+
+ 26. Additional issues (16 to 24)
+
+16. Accessibility Issue:** Missing page title or page language
+- Who May Be Affected:** Screen reader users, people using translation tools
+- Explanation of the Barrier:** Without a title, users cannot tell tabs apart. Without a language tag, screen readers may pronounce words wrongly.
+- Practical Improvement:** Give every page a unique `<title>` and add `<html lang="en">`.
+
+17. Accessibility Issue:** PDFs and documents that are scanned images
+- Who May Be Affected:** Blind and low-vision users, people on low-end phones
+- Explanation of the Barrier:** Screen readers cannot read a scanned page, and the text cannot be resized or searched.
+- Practical Improvement:** Publish text-based, tagged PDFs, or provide an HTML version.
+
+18. Accessibility Issue:** Text embedded in images
+- Who May Be Affected:** Low-vision users, screen reader users
+- Explanation of the Barrier:** Text in a banner or poster cannot be resized, recoloured or read aloud.
+- Practical Improvement:** Use real HTML text. If an image of text is unavoidable, repeat the text in the alt text.
+
+19. Accessibility Issue:** Data tables without headers
+- Who May Be Affected:** Screen reader users
+- Explanation of the Barrier:** Without header cells, users hear numbers with no idea which row or column they belong to.
+- Practical Improvement:** Use `<th scope="col">` and `<th scope="row">`, and add a `<caption>`.
+
+20. Accessibility Issue:** CAPTCHA with no alternative
+- Who May Be Affected:** Blind, low-vision and cognitive-disability users
+- Explanation of the Barrier:** Distorted-text or image puzzles cannot be solved by many users.
+- Practical Improvement:** Offer an audio or logic-based alternative, or use invisible bot checks.
+
+**21. Accessibility Issue:** Inconsistent navigation
+- **Who May Be Affected:** Cognitive-disability users, screen reader users, first-time visitors
+- **Explanation of the Barrier:** Menus that change position or order between pages make the site hard to learn.
+- **Practical Improvement:** Keep menus, labels and layout the same on every page.
+
+22. Accessibility Issue:** No "Skip to main content" link
+- **Who May Be Affected:** Keyboard and screen reader users
+- **Explanation of the Barrier:** They must Tab through the whole menu on every page.
+- **Practical Improvement:** Add a skip link as the first focusable element.
+
+23. Accessibility Issue:** Pop-ups and modals that trap keyboard focus
+- **Who May Be Affected:** Keyboard and screen reader users
+- **Explanation of the Barrier:** Focus enters the pop-up and cannot leave, or the pop-up cannot be closed with Esc.
+- **Practical Improvement:** Move focus into the modal, allow Esc to close it, and return focus to the trigger button.
+
+24. Accessibility Issue:** Drag-only actions and tiny tap targets
+- **Who May Be Affected:** People with tremors or motor disabilities, mobile users
+- **Explanation of the Barrier:** Sliders and drag-and-drop need precise movement, and small buttons are easy to miss.
+- **Practical Improvement:** Provide a click or button alternative to dragging, and make targets at least 24×24 px (44×44 px is better).
+
+27. Summary table for issues 16 to 24
+
+| # | Issue | Principle | WCAG criterion |
+|---|---|---|---|
+| 16 | No page title or language | Operable / Understandable | 2.4.2, 3.1.1 |
+| 17 | Image-only PDFs | Perceivable | 1.1.1, 1.3.1 |
+| 18 | Text in images | Perceivable | 1.4.5 Images of Text |
+| 19 | Tables without headers | Perceivable | 1.3.1 |
+| 20 | CAPTCHA with no alternative | Perceivable / Understandable | 1.1.1, 3.3.8 (WCAG 2.2) |
+| 21 | Inconsistent navigation | Understandable | 3.2.3, 3.2.4 |
+| 22 | No skip link | Operable | 2.4.1 Bypass Blocks |
+| 23 | Focus trap in modals | Operable | 2.1.2 No Keyboard Trap |
+| 24 | Drag-only, tiny targets | Operable | 2.5.7, 2.5.8 (WCAG 2.2) |
+
+ 28. Code examples
+
+Accessible table (issue 19)**
+```html
+<table>
+  <caption>Tuition fees per semester</caption>
+  <tr><th scope="col">Programme</th><th scope="col">Fee (UGX)</th></tr>
+  <tr><th scope="row">Nursing</th><td>2,500,000</td></tr>
+</table>
+```
+
+Skip link CSS (issue 22)**
+```css
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus { left: 10px; top: 10px; background: #fff; padding: 8px; }
+```
+
+Closing a modal with Esc (issue 23)**
+```js
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+```
+
+29. What is new in WCAG 2.2
+| Criterion | Level | Meaning |
+|---|---|---|
+| 2.4.11 Focus Not Obscured | AA | Focused item is not hidden behind sticky headers or banners |
+| 2.5.7 Dragging Movements | AA | Offer a non-drag alternative |
+| 2.5.8 Target Size (Minimum) | AA | Targets at least 24×24 px |
+| 3.2.6 Consistent Help | A | Help links appear in the same place on every page |
+| 3.3.7 Redundant Entry | A | Do not make users retype information they already entered |
+| 3.3.8 Accessible Authentication | AA | No memory or puzzle tests as the only way to log in |
+
+Note that 4.1.1 Parsing was removed in WCAG 2.2.
+
+## 30. Assistive technologies and how to test with them
+| Technology | Used by | Quick test |
+|---|---|---|
+| NVDA (Windows) | Blind users | Press `H` to jump between headings, `K` between links |
+| TalkBack (Android) | Blind users on phones | Swipe through the page and listen |
+| VoiceOver (iPhone, Mac) | Blind users | Use the Rotor to list headings and links |
+| Screen magnifier / browser zoom | Low-vision users | Zoom to 200% to 400% |
+| Voice control | Motor-impaired users | Say a button's visible name; it should activate |
+| Switch access | Severe motor impairment | Check that all items are reachable in order |
+
+ 31. Sample README structure for your audit
+```
+ Website Accessibility Audit
+1. Purpose and scope
+ 2. Websites audited and date
+3. Method and tools (WAVE, Lighthouse, keyboard test, NVDA)
+4. Findings (15 issues, using the template)
+5. Summary table with WCAG criteria
+6. Severity ratings and priority order
+7. Recommendations
+ 8. Limitations
+9. Conclusion
+10. References
+```
+
+ 32. Quick improvement checklist for developers
+- [ ] Every image has a suitable `alt`
+- [ ] Contrast is at least 4.5:1 (3:1 for large text)
+- [ ] Everything works by keyboard, with a visible focus
+- [ ] Videos have captions, audio has transcripts
+- [ ] One `<h1>`, with headings in order
+- [ ] Every form field has a label and clear errors
+- [ ] No flashing content, and autoplay can be stopped
+- [ ] Layout works at 320 px and 200% zoom
+- [ ] Page has a title and language
+- [ ] Links make sense out of context
+
+33. More likely exam questions
+1. What is a skip link? A link at the top of the page that lets keyboard users jump past the menu to the main content.
+2. Why are image-only PDFs inaccessible? Screen readers cannot read the text, and it cannot be resized.
+3. Why should tables have header cells? Screen readers use them to tell users which column and row each value belongs to.
+4. What does WCAG 2.5.8 require? Interactive targets of at least 24×24 px.
+5. Give two ways to make a CAPTCHA more accessible. Provide an audio alternative, or use an invisible or logic-based check.
+6. Why must menus be consistent across pages? Predictable layout helps people with cognitive disabilities and everyone else.
+7. What is the "first rule of ARIA"? Use native HTML elements before adding ARIA.
+8. Why is automated testing not enough? Tools find only about 30 to 40% of issues and cannot judge meaning, such as whether alt text is accurate.
+
+ 34. More key terms
+- Bypass blocks: a way to skip repeated content such as menus.
+- Tagged PDF: a PDF with structure (headings, lists) that assistive technology can read.
+- Modal: a pop-up window that blocks the rest of the page until closed.
+- Target size: the clickable or tappable area of a control.
+- Redundant entry: asking users to enter the same information twice.
+- Accessibility statement: a page describing a site's accessibility level and how to report problems.
+
+35. References
+- W3C, What's New in WCAG 2.2, w3.org/WAI/standards-guidelines/wcag/new-in-22
+- W3C WAI, Easy Checks: A First Review of Web Accessibility, w3.org/WAI
+- WebAIM, Screen Reader Survey and NVDA shortcuts, webaim.org
+
+I can now merge sections 1 to 35 into one Word document or a finished README, written concisely. Which would you like?

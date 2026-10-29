@@ -173,3 +173,106 @@ WCAG criterion:
 - **Lazy loading:** loading images only when they are about to be seen.
 
 Share your real five issues and the sites you audited, and I can turn this into a finished README or a Word document.
+
+
+Here are more sections that continue from section 15 in the same structure.
+
+## 16. Other common issues (use as extras or swap-ins)
+
+| Issue | Who is affected | Fix | WCAG |
+|---|---|---|---|
+| Poor heading structure (skipped levels, bold text used as headings) | Screen-reader users | Use one `<h1>`, then `<h2>`, `<h3>` in order | 1.3.1, 2.4.6 |
+| Vague link text ("click here", "read more") | Screen-reader and cognitive users | Use descriptive text, e.g. "Download the 2026 fee structure" | 2.4.4 |
+| No captions or transcripts for video/audio | Deaf and hard-of-hearing users | Add captions and a transcript | 1.2.1, 1.2.2 |
+| Missing page title or language attribute | Screen-reader users | Unique `<title>` and `<html lang="en">` | 2.4.2, 3.1.1 |
+| Auto-playing media, moving banners | Users with attention or vestibular issues | Allow pause/stop, avoid autoplay | 2.2.2 |
+| Session timeouts without warning | Slow readers, motor-impaired users | Warn and allow extension | 2.2.1 |
+
+17. Useful ARIA basics
+- **First rule of ARIA:** use native HTML (`<button>`, `<nav>`) before adding ARIA.
+- `aria-label` gives a name to icon-only buttons.
+- `aria-live="polite"` announces dynamic messages such as form errors.
+- `role="alert"` is used for urgent messages.
+
+```html
+<button aria-label="Open menu"><svg>…</svg></button>
+<div role="alert">Password must be at least 8 characters.</div>
+```
+
+## 18. Landmarks and structure
+Use `<header>`, `<nav>`, `<main>`, `<footer>` so screen-reader users can jump between page regions.
+
+```html
+<a href="#main" class="skip-link">Skip to main content</a>
+<main id="main"> … </main>
+```
+
+## 19. Quick manual test checklist
+- [ ] Can I complete the main task using only the keyboard?
+- [ ] Is the focus outline always visible?
+- [ ] Do all informative images have meaningful alt text?
+- [ ] Does text zoom to 200% without breaking the layout?
+- [ ] Is contrast at least 4.5:1 for body text?
+- [ ] Do form errors say what went wrong and how to fix it?
+- [ ] Does the page work at 320px width (phone)?
+- [ ] Does the page load in under 3 seconds on Slow 3G?
+
+## 20. Example finding (filled-in template)
+```
+Issue: Missing alt text on images
+Page / website: Home page – News section
+Description: Five news thumbnails have no alt attribute; the screen reader reads "image1.jpg".
+Who is affected: Blind and low-vision users
+Barrier: News meaning is lost
+Evidence: Screenshot of WAVE report (Figure 2)
+Severity: High
+Recommended fix: Add alt="Students receiving certificates at graduation"
+WCAG criterion: 1.1.1 Non-text Content
+```
+
+## 21. Prioritised action plan
+
+| Priority | Action | Effort | Impact |
+|---|---|---|---|
+| 1 | Fix keyboard access and focus | Medium | Very high |
+| 2 | Improve form labels and errors | Low | High |
+| 3 | Add alt text | Low | High |
+| 4 | Fix contrast and text size | Low | Medium |
+| 5 | Optimise images and mobile layout | Medium | High (Uganda data costs) |
+
+## 22. Limitations of the audit
+- Automated tools catch only about 30–40% of issues, so manual testing is essential.
+- Only a sample of pages was tested.
+- Testing was not done with real users with disabilities.
+- Sites change over time, so results reflect the date of testing.
+
+## 23. Recommendations beyond fixes
+- Include accessibility in design and development from the start, not as an afterthought.
+- Train content editors on alt text and headings.
+- Re-test after every major update.
+- Publish an accessibility statement with a contact for feedback.
+
+## 24. More likely exam questions
+1. Differentiate WCAG levels A, AA and AAA.** A is the minimum, AA is the usual target, AAA is the highest and not always achievable.
+2. Why do automated tools alone fail?** They cannot judge meaning, such as whether alt text is accurate.
+3. What is a keyboard trap?** Focus enters an element and the user cannot leave it with the keyboard.
+4. Give two benefits of accessible sites to a business.** Wider audience and better SEO.
+5. What is a skip link?** A hidden link that lets keyboard users jump past the menu to the main content.
+6. Why is page speed an accessibility issue in Uganda?** Data is costly and bandwidth is limited, so heavy pages exclude users.
+
+25. More key terms
+- ARIA:** attributes that add accessibility information to elements.
+- Landmark:** a page region (`main`, `nav`) that assistive tools can jump to.
+- Alt text:** a text alternative describing an image.
+- Keyboard trap:** focus gets stuck in an element.
+- Severity rating:** how seriously an issue affects users.
+- Conformance:** meeting a WCAG level.
+
+26. References
+- W3C, *Web Content Accessibility Guidelines (WCAG) 2.2*, w3.org/TR/WCAG22
+- WebAIM, *WCAG 2 Checklist*, webaim.org
+- Google, *Lighthouse documentation*, developer.chrome.com
+
+I can merge everything (sections 1–26) into one finished README or a Word document. If you give me the five real issues and the websites you audited, I'll tailor it to them.
+
+
